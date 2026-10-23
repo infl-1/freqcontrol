@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Recommended LSPosed scope: Samsung Device Health Manager -->
+    <string-array name="xposed_scope">
+        <item>com.sec.android.sdhms</item>
+    </string-array>
+</resources>

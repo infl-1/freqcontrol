@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">التحكم بالتردد</string>
+    <string name="xposed_description">تحديد أدنى وأعلى تردد للـ GPU والـ CPU في أجهزة سامسونج. يعمل داخل SDHMS.</string>
+
+    <string name="access_checking">جاري فحص صلاحية الإعدادات…</string>
+    <string name="access_granting">أطلب من الروت منح صلاحية الإعدادات…</string>
+    <string name="access_ok">صلاحية الإعدادات جاهزة.</string>
+    <string name="access_missing">صلاحية الإعدادات غير متوفرة. اسمح للتطبيق بالروت، أو نفّذ: adb shell pm grant %1$s android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="write_failed">تعذّر الحفظ. اسمح للتطبيق بالروت ثم أعد المحاولة.</string>
+
+    <string name="card_gpu_title">تردد الـ GPU</string>
+    <string name="card_cpu_title">تردد الـ CPU (تجريبي)</string>
+    <string name="card_description">يحدد أدنى وأعلى تردد يسمح به النظام.</string>
+    <string name="range_format">%1$s – %2$s MHz</string>
+    <string name="range_unknown">—</string>
+
+    <string name="status_module_missing">الموديول غير محمّل. في LSPosed فعّل Freq Control على com.sec.android.sdhms ثم أعد التشغيل.</string>
+    <string name="status_disabled">متوقف</string>
+    <string name="status_pending">بانتظار الموديول…</string>
+    <string name="status_active">مفعّل ومطبّق</string>
+    <string name="status_min_unavailable">النظام رفض قيمة الحد الأدنى.</string>
+    <string name="status_max_unavailable">النظام رفض قيمة الحد الأعلى.</string>
+    <string name="status_frequencies_unavailable">النظام لم يرجّع جدول الترددات.</string>
+    <string name="status_failed">تعذّر التطبيق. راجع سجل LSPosed وابحث عن FreqCtl.</string>
+    <string name="status_unsupported">غير مدعوم في هذا الجهاز.</string>
+</resources>

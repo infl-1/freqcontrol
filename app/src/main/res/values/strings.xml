@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Freq Control</string>
+    <string name="xposed_description">Limit the minimum and maximum GPU and CPU frequency on Samsung devices. Runs inside SDHMS.</string>
+
+    <string name="access_checking">Checking settings access…</string>
+    <string name="access_granting">Asking root to grant settings access…</string>
+    <string name="access_ok">Settings access is ready.</string>
+    <string name="access_missing">Settings access is missing. Allow root for this app, or run: adb shell pm grant %1$s android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="write_failed">Could not save. Allow root for this app, then try again.</string>
+
+    <string name="card_gpu_title">GPU frequency</string>
+    <string name="card_cpu_title">CPU frequency (experimental)</string>
+    <string name="card_description">Limits the lowest and highest frequency the system may use.</string>
+    <string name="range_format">%1$s – %2$s MHz</string>
+    <string name="range_unknown">—</string>
+
+    <string name="status_module_missing">Module not loaded. In LSPosed, enable Freq Control for com.sec.android.sdhms, then reboot.</string>
+    <string name="status_disabled">Off</string>
+    <string name="status_pending">Waiting for the module…</string>
+    <string name="status_active">Applied</string>
+    <string name="status_min_unavailable">The system rejected the minimum value.</string>
+    <string name="status_max_unavailable">The system rejected the maximum value.</string>
+    <string name="status_frequencies_unavailable">The system returned no frequency table.</string>
+    <string name="status_failed">Could not apply. Check the LSPosed log for FreqCtl.</string>
+    <string name="status_unsupported">Not supported on this device.</string>
+</resources>

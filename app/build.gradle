@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'io.github.freqctl'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'io.github.freqctl'
+        minSdk 33
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Xposed API is provided by LSPosed at runtime and is never packaged.
+    compileOnly project(':xposed-stub')
+    implementation 'com.google.android.material:material:1.12.0'
+}
