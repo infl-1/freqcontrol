@@ -64,7 +64,7 @@ final class DomainCard {
     /**
      * Shows the current state.
      *
-     * @param moduleLoaded true when the hook published a table during this boot
+     * @param moduleLoaded true when the hook (or the root helper) published a table during this boot
      * @param status       last status the hook published (may be null)
      */
     void bind(boolean moduleLoaded, int[] newTable, String status, boolean enabled, int min, int max) {
@@ -97,7 +97,8 @@ final class DomainCard {
 
     private int statusRes(boolean moduleLoaded, String status, boolean enabled) {
         if (!moduleLoaded) {
-            return R.string.status_module_missing;
+            return domain.mechanism == Domain.Mechanism.ROOT_SYSFS
+                    ? R.string.status_root_missing : R.string.status_module_missing;
         }
         if (Status.UNSUPPORTED.equals(status)) {
             return R.string.status_unsupported;
@@ -119,6 +120,8 @@ final class DomainCard {
                 return R.string.status_frequencies_unavailable;
             case Status.FAILED:
                 return R.string.status_failed;
+            case Status.GUARD:
+                return R.string.status_guard;
             default:
                 return R.string.status_disabled;
         }

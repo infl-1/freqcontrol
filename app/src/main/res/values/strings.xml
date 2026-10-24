@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Freq Control</string>
-    <string name="xposed_description">Limit the minimum and maximum GPU and CPU frequency on Samsung devices. Runs inside SDHMS.</string>
+    <string name="xposed_description">Limit the minimum and maximum CPU (every cluster), GPU, DDR and NPU frequency on Samsung devices, with a thermal guard. Runs inside SDHMS plus a root helper.</string>
 
     <string name="access_checking">Checking settings access…</string>
     <string name="access_granting">Asking root to grant settings access…</string>
-    <string name="access_ok">Settings access is ready.</string>
+    <string name="access_ok">Settings access and root helper are ready.</string>
+    <string name="access_ok_no_helper">Settings access is ready, but the root helper could not be installed. CPU cluster limits and the thermal guard need root.</string>
     <string name="access_missing">Settings access is missing. Allow root for this app, or run: adb shell pm grant %1$s android.permission.WRITE_SECURE_SETTINGS</string>
     <string name="write_failed">Could not save. Allow root for this app, then try again.</string>
 
     <string name="card_gpu_title">GPU frequency</string>
-    <string name="card_cpu_title">CPU frequency (experimental)</string>
+    <string name="card_ddr_title">DDR (memory) frequency</string>
+    <string name="card_npu_title">NPU frequency</string>
+    <string name="card_cpu0_title">CPU cores 0–1 (Little)</string>
+    <string name="card_cpu2_title">CPU cores 2–4 (Mid)</string>
+    <string name="card_cpu5_title">CPU cores 5–6 (Mid+)</string>
+    <string name="card_cpu7_title">CPU core 7 (Prime)</string>
     <string name="card_description">Limits the lowest and highest frequency the system may use.</string>
     <string name="range_format">%1$s – %2$s MHz</string>
     <string name="range_unknown">—</string>
@@ -24,4 +30,15 @@
     <string name="status_frequencies_unavailable">The system returned no frequency table.</string>
     <string name="status_failed">Could not apply. Check the LSPosed log for FreqCtl.</string>
     <string name="status_unsupported">Not supported on this device.</string>
+    <string name="status_root_missing">Root helper not running. Allow root for this app and reopen it.</string>
+    <string name="status_guard">Paused by the thermal guard (too hot). Comes back when it cools down.</string>
+
+    <string name="guard_title">Thermal guard</string>
+    <string name="guard_description">When the SoC or the battery reaches its limit, every limit is released automatically. It comes back once temperatures drop.</string>
+    <string name="guard_soc_label">SoC limit: %1$d °C</string>
+    <string name="guard_batt_label">Battery limit: %1$d °C</string>
+    <string name="guard_state_ok">Watching. Temperatures are under the limits.</string>
+    <string name="guard_state_tripped">Tripped: all limits are released until it cools down.</string>
+    <string name="guard_state_off">Guard is off. Nothing stops overheating except Samsung and hardware protection.</string>
+    <string name="guard_state_no_root">The guard runs in the root helper, which is not running.</string>
 </resources>

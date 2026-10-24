@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">التحكم بالتردد</string>
-    <string name="xposed_description">تحديد أدنى وأعلى تردد للـ GPU والـ CPU في أجهزة سامسونج. يعمل داخل SDHMS.</string>
+    <string name="xposed_description">تحديد أدنى وأعلى تردد للـ CPU (كل الكلسترات) والـ GPU والـ DDR والـ NPU في أجهزة سامسونج مع حارس حرارة. يعمل داخل SDHMS ومساعد روت.</string>
 
     <string name="access_checking">جاري فحص صلاحية الإعدادات…</string>
     <string name="access_granting">أطلب من الروت منح صلاحية الإعدادات…</string>
-    <string name="access_ok">صلاحية الإعدادات جاهزة.</string>
+    <string name="access_ok">صلاحية الإعدادات ومساعد الروت جاهزين.</string>
+    <string name="access_ok_no_helper">صلاحية الإعدادات جاهزة، لكن تعذّر تثبيت مساعد الروت. تحكم كلسترات الـ CPU وحارس الحرارة يحتاجون روت.</string>
     <string name="access_missing">صلاحية الإعدادات غير متوفرة. اسمح للتطبيق بالروت، أو نفّذ: adb shell pm grant %1$s android.permission.WRITE_SECURE_SETTINGS</string>
     <string name="write_failed">تعذّر الحفظ. اسمح للتطبيق بالروت ثم أعد المحاولة.</string>
 
     <string name="card_gpu_title">تردد الـ GPU</string>
-    <string name="card_cpu_title">تردد الـ CPU (تجريبي)</string>
+    <string name="card_ddr_title">تردد الـ DDR (الذاكرة)</string>
+    <string name="card_npu_title">تردد الـ NPU</string>
+    <string name="card_cpu0_title">نوى CPU ‏0–1 (Little)</string>
+    <string name="card_cpu2_title">نوى CPU ‏2–4 (Mid)</string>
+    <string name="card_cpu5_title">نوى CPU ‏5–6 (Mid+)</string>
+    <string name="card_cpu7_title">نواة CPU ‏7 (Prime)</string>
     <string name="card_description">يحدد أدنى وأعلى تردد يسمح به النظام.</string>
     <string name="range_format">%1$s – %2$s MHz</string>
     <string name="range_unknown">—</string>
@@ -24,4 +30,15 @@
     <string name="status_frequencies_unavailable">النظام لم يرجّع جدول الترددات.</string>
     <string name="status_failed">تعذّر التطبيق. راجع سجل LSPosed وابحث عن FreqCtl.</string>
     <string name="status_unsupported">غير مدعوم في هذا الجهاز.</string>
+    <string name="status_root_missing">مساعد الروت غير شغّال. اسمح للتطبيق بالروت ثم افتحه من جديد.</string>
+    <string name="status_guard">موقوف بواسطة حارس الحرارة (سخونة عالية). يرجع تلقائياً بعد ما يبرد.</string>
+
+    <string name="guard_title">حارس الحرارة</string>
+    <string name="guard_description">إذا وصل المعالج أو البطارية للحد المحدد، تنفك كل القيود تلقائياً وترجع لما يبرد الجهاز.</string>
+    <string name="guard_soc_label">حد المعالج: %1$d °م</string>
+    <string name="guard_batt_label">حد البطارية: %1$d °م</string>
+    <string name="guard_state_ok">يراقب. الحرارة تحت الحدود.</string>
+    <string name="guard_state_tripped">انطلق الحارس: كل القيود مفكوكة لين يبرد الجهاز.</string>
+    <string name="guard_state_off">الحارس مطفي. ما فيه شي يمنع السخونة غير حماية سامسونج والهاردوير.</string>
+    <string name="guard_state_no_root">الحارس يشتغل داخل مساعد الروت وهو غير شغّال.</string>
 </resources>

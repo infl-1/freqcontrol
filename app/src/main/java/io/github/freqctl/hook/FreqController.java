@@ -14,7 +14,7 @@ import de.robv.android.xposed.XposedBridge;
 import io.github.freqctl.Domain;
 
 /**
- * Installed once inside the SDHMS process. Sets up one {@link DomainRunner} per domain, applies the
+ * Installed once inside the SDHMS process. Sets up one {@link DomainRunner} per DVFS domain, applies the
  * saved settings right away and re-applies whenever the UI changes a setting.
  */
 final class FreqController {
@@ -37,10 +37,29 @@ final class FreqController {
         final ContentResolver resolver = context.getContentResolver();
         final Handler handler = new Handler(Looper.getMainLooper());
 
+        // One observer for the thermal guard: when it trips or recovers every runner re-evaluates.
+        final List<DomainRunner> runners = new ArrayList<>();
+        ContentObserver guardObserver = new ContentObserver(handler) {
+            @Override
+            public void onChange(boolean selfChange) {
+                for (DomainRunner runner : runners) {
+                    runner.reload();
+                }
+            }
+        };
+        resolver.registerContentObserver(Settings.Global.getUriFor(Domain.KEY_GUARD_TRIPPED), false, guardObserver);
+        synchronized (LOCK) {
+            KEEP.add(guardObserver);
+        }
+
         for (Domain domain : Domain.values()) {
+            if (domain.mechanism == Domain.Mechanism.ROOT_SYSFS) {
+                continue; // handled by the root helper script, not by SDHMS
+            }
             try {
                 final DomainRunner runner = new DomainRunner(domain, context, classLoader);
                 runner.init();
+                runners.add(runner);
 
                 ContentObserver observer = new ContentObserver(handler) {
                     @Override

@@ -29,16 +29,16 @@
             android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <include
-            android:id="@+id/card_gpu"
-            layout="@layout/card_domain"
+            android:id="@+id/card_guard"
+            layout="@layout/card_guard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <include
-            android:id="@+id/card_cpu"
-            layout="@layout/card_domain"
+        <!-- One card per domain, added from code (see MainActivity). -->
+        <LinearLayout
+            android:id="@+id/cards_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:orientation="vertical" />
     </LinearLayout>
 </ScrollView>

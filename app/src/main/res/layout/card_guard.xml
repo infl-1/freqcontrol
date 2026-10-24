@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="?attr/materialCardViewFilledStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/guard_title"
+                android:textAppearance="?attr/textAppearanceTitleLarge" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/guard_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/guard_description"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <TextView
+            android:id="@+id/guard_soc_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/guard_soc_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:stepSize="1"
+            android:value="85"
+            android:valueFrom="60"
+            android:valueTo="100" />
+
+        <TextView
+            android:id="@+id/guard_batt_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/guard_batt_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:stepSize="1"
+            android:value="45"
+            android:valueFrom="38"
+            android:valueTo="50" />
+
+        <TextView
+            android:id="@+id/guard_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
